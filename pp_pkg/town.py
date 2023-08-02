@@ -1,13 +1,13 @@
 from pp_pkg import town_interiors, cross_roads
 char = ""
 
-def welcomeToTown(a):
-      global char
-      char = a
-      
-      print("The", char,
-            "came to a small town.\nThought the sun is height, it looks and feels empty.\nMost are insaide look thought the windows.")
-      input("You heard rumor of a monster picking off travler close by so. \nIt would be easy money, should head to the Town Hall.")
+def welcomeToTown(char, bool):
+      if bool == True:
+            print("The", char,
+                  "came to a small town.\nThought the sun is height, it looks and feels empty.\nMost are insaide look thought the windows.")
+            input("You heard rumor of a monster picking off travler close by so. \nIt would be easy money, should head to the Town Hall.")
+      else:
+            print("The",char,"return to the small town.")
 
       while True:
             print("You see the\n1.) Town Hall\n2.) General Store\n3.) Magic Shop\n4.) Inn\n5.) Church\n6.) Exit Town")
