@@ -1,0 +1,105 @@
+
+Spencer Text Adventure Game
+
+Step by step Algorithm
+
+    The user choices a character class by number or text input.
+
+    Checks if the user wants to continue with this character before
+    proceeding or if they want to pick a different one.
+
+    The user will be given a description of the area and a list of 
+    choice of were they can go to or what they can do if any is available.
+
+    Each location will have new paths for them to head towards or NPC's that 
+    they can interact with or attack, if given the choice.
+
+    There are some exclusive choice or events base on what class the user choice.
+
+    Base on your decision the game will either continue or kill the users character.
+
+    The objective is to complete a quest given by the towns mayor.  Once that quest 
+    is completed the game is over.
+
+    If the user wins or looses they can choice to continue or quit
+
+    Continuing will start at last choice before they die or start from the character 
+    selection if they won.
+
+    Quitting will close the program.
+
+
+
+
+Game:
+
+Choose from number of chracters
+
+1.) Warriar
+2.) Theif
+3.) Mage
+4.) Archer
+5.) Paladin
+
+After picking a character you get a discription and state and weakness
+
+Condition if you want this chracter or go back and choice another one
+-------------------------------------------------------------------------------
+You start in a small town with 6 choices to do
+
+1.) Go to the Town Hall
+2.) General Store
+3.) Magic Shop
+4.) Inn
+5.) Church
+6.) Exit Town
+
+Then Game will tell you to Head to the Town Hall first.
+
+You meet the mayer and he ask you to kill a "Monster" that treating the town.
+You can choice to accept or not.  Not accepting will end the game.
+You can talk to the may for more information or leave the building.
+
+The general store will sell you potion, if you a warriar or archer.
+If your a Mage he hell tell you to try the magic shop.
+If your a Paladin hell tell you to head to the church.
+If your a theif he will refuse to do work with you.
+
+You can ask questions but not if your a theif.
+
+The Magic shope will sell you magic potion if you a mage
+if your a warrior or archer hell tlel you to try the general store
+if your a paladin hell tell you to head to the church
+if your a theif he will refuse to do work with you.
+
+You can ask questions but not if your a theif.
+
+In the Inn you cant walk to the owner or a man in a shadowy corner
+
+You can talk to the owner and talk to him.
+
+You can talk to the shadowy corner man but wont say a thing.
+If you a theif he will talk to you can sell you posions and lock picks.
+
+In the church you can talk to the prist
+He will tell you about the monster.
+If you a paladin he will give you holy water and a blessing
+--------------------------------------------------------------------------
+If you exit the town you will be at a cross road with 5 choices.
+
+1.) North to the Mountions
+2.) West to a dark forest
+3.) East to the marsh land
+4.) South East to a grave yard
+5.) South to the town. 
+
+--------------------------------------------------------------------------
+In the Dark Forest were you meet a hunter
+He's looking for his dog who was chaseing a deer
+You go deeper in to the forest looking for it
+
+
+To reach the dog, you must enter: Up, Left, Left, Up, Up, Right, Up, Right
+If you dotn enter in the correct order you end up right back were you are.
+If the input order is correct you will find the dog sleeping near a tree.
+You go up to the dog but get surrounded by wolves.
