@@ -5,7 +5,6 @@ arch = "Archer"
 pala = "Paladin"
 char = ""
 
-
 def characterSelection():
     global char
     while True:
