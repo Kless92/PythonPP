@@ -1,10 +1,14 @@
-from pp_pkg import town, bag
+from pp_pkg import town, forest, bag
 
 crossRoadsFirst = True
 
+def mapCheck():
+    if "map" in bag.bag:
+        return True
+
 def theCrossRoads(char):  
     global crossRoadsFirst
-    b = "map"
+
     if crossRoadsFirst == True:
         print("The",char,"travel over an hour till eventually reached a cross roads.\nSouth would obviously take the",char,"back to town.")
         input("But were the others would take is unknown.")
@@ -15,21 +19,24 @@ def theCrossRoads(char):
 
     while True: 
         print("1.) North\n2.) West\n3.) East\n4.) South")
-        if "map" in bag.bag:
+        if mapCheck() == True:
             print("5.) Map")
         a = input("Were do u want to go: ")
+        if bag.helpMe(a) == True:
+            continue
         if bag.checkBag(a) == True:
             continue
-        if "map" in bag.bag:
+        if mapCheck() == True:
             if bag.checkMap(a) == True:
                 continue
-        if a == "1":
+        if a == "1" or a.lower() == "north":
             print()
-        elif a == "2":
+        elif a == "2" or a.lower() == "west":
+            forest.lost_forest(char)
+            break
+        elif a == "3" or a.lower() == "east":
             print()
-        elif a == "3":
-            print()
-        elif a == '4':
+        elif a == '4' or a.lower() == "south":
             town.welcomeToTown(char, False)
             break
         else:

@@ -12,9 +12,8 @@ theifSupp = True
 churchSupp = True
 innRumor = True
 theifInfo = True
+
 # Town Hall fucntion
-
-
 def townHall(char):
     global townHallFirst, haveMap
 
@@ -24,7 +23,7 @@ def townHall(char):
               ", given a suprice and then a excited look.")
         input("Please come over I wish to speak with you!")
         print("You timming couldn't be anymore perfice.  I can tell that you the adventuring kind and I happen to have a bounty for you.")
-        print("Theres a Monster that lives North of here and has ben tarizing this community for too long.")
+        print("Theres a 'Monster' that lives 'North' of here and has ben tarizing this community for too long.")
         print("So I ask you", char, ". Would you help us?")
         while True:
             a = input("What should you do: ")
@@ -60,16 +59,13 @@ def townHall(char):
                 input(
                     "I already told you, its North in the Mountains.\nIf you want another map too bad.\nEveryone gets one.")
 
-        elif a == "2" or a.lower() == "ask" or a.lower() == "monster":
-            print(
-                "I personally dont know what kind of monster it is, so you should ask around town")
-        elif a == "3" or a.lower() == "exit":
+        elif a == "2" or a.lower() == "monster":
+            print("I personally dont know what kind of monster it is, so you should ask around town")
+        elif a == "3" or a.lower() == "exit" or a.lower() == "leave":
             town.welcomeToTown(char, False)
         else:
             input("Not a valid input.")
 # General Store Fucntion
-
-
 def generalStore(char):
     global generalStoreFirst, generalSupp
 
@@ -124,15 +120,13 @@ def generalStore(char):
                 input("PISS OFF!")
             else:
                 print(
-                    "I ever see the monster myself,\nbut I think the Inn Keep might know.")
+                    "I ever see the 'Monster' myself,\nbut I think the Inn Keep might know.")
                 input("I go check with her.")
-        elif a == "3" or a.lower() == "exit":
+        elif a == "3" or a.lower() == "exit" or a.lower() == "leave":
             town.welcomeToTown(char, False)
         else:
             input("Not a valid input.")
 # Magic Shop Function
-
-
 def magicShop(char):
     global magicShopFirst, magicSupp
 
@@ -188,13 +182,11 @@ def magicShop(char):
                 print(
                     "At my age I bearly ever leave my shop,\nI heard Inn Keep saw what it looks like.")
                 input("I would ask her.")
-        elif a == "3" or a.lower() == "exit":
+        elif a == "3" or a.lower() == "exit" or a.lower() == "leave":
             town.welcomeToTown(char, False)
         else:
             input("Not a valid input.")
 # Church Fucntion
-
-
 def church(char):
     global churchFirst, churchSupp
     if churchFirst == True:
@@ -208,9 +200,9 @@ def church(char):
         input("What bring you back my chiled.")
 
     while True:
-        print("1.) Get Supplies.\n2.) Ask about the monster.\n3.) Return to the town.")
+        print("1.) Buy Supplies.\n2.) Ask about the monster.\n3.) Return to the town.")
         a = input("what should you do: ")
-        if a == "1" or a.lower() == "supplies" or a.lower() == "get supplies" or a.lower() == "getsupplies":
+        if a == "1" or a.lower() == "buy" or a.lower() == "supplies" or a.lower() == "buy supplies" or a.lower() == "buysupplies":
             if bag.checkBag(a) == True:
                 continue
             if char == "Paladin":
@@ -239,13 +231,11 @@ def church(char):
             print("Its a DEMON I tell you", char,
                   ".\nA DEMON who will destory this town and its inhabitants.")
             input("Will you be the Hero that this town needs?")
-        elif a == "3" or a.lower() == "exit":
+        elif a == "3" or a.lower() == "exit" or a.lower() == "leave":
             town.welcomeToTown(char, False)
         else:
             input("Not a valid input.")
 # Inn Fucntion
-
-
 def inn(char):
     global innFirst
     if innFirst == True:
@@ -258,15 +248,13 @@ def inn(char):
         input("The Inn keeper notice you.")
 
     while True:
-        print("1.) Talk to the Inn Keeper\n2.) Talk to the Man in a Shadowy Corner")
+        print("1.) Talk to the 'Inn Keeper'\n2.) Talk to the 'Man' in a Shadowy 'Corner'")
         a = input("Who should you talk to first: ")
         if a == "1" or a.lower() == "keeper" or a.lower() == "inn keeper" or a.lower() == "innkeeper":
             innKeeper(char)
-        elif a == "2" or a.lower() == "man" or a.lower() == "corner" or a.lower() == "stranger":
+        elif a == "2" or a.lower() == "man" or a.lower() == "corner":
             stranger(char)
 # Inkeeper Fucntion
-
-
 def innKeeper(char):
     global innRumor
     while True:
@@ -290,19 +278,17 @@ def innKeeper(char):
         elif a == "2" or a.lower() == "ask" or a.lower() == "monster":
             if innRumor == True:
                 print(
-                    "I know the rumors that I seen the monster but no I havent.\nHow the huntsman has, he told me himself.")
+                    "I know the rumors that I seen the 'monster' but no I havent.\nHow the huntsman has, he told me himself.")
                 input(
                     "Hes not here now but he is out in the forest,\nwest from the cross roads north of town")
                 innRumor = False
             else:
                 input("I already told you the huntsman is in the forest,\nwest from the cross roads north of town.\nDont you have a Map?")
-        elif a == "3" or a.lower() == "exit":
+        elif a == "3" or a.lower() == "exit" or a.lower() == "leave":
             town.welcomeToTown(char, False)
         else:
             input("Not a valid input.")
 # Stranger Fucntion
-
-
 def stranger(char):
     while True:
         global theifSupp, theifInfo
@@ -349,7 +335,7 @@ def stranger(char):
             else:
                 print("Do I look like I'm in the mood to talk to a", char, "?")
                 input("Now bugger off.")
-        elif a == "3" or a.lower() == "exit":
+        elif a == "3" or a.lower() == "exit" or a.lower() == "leave":
             town.welcomeToTown(char, False)
         else:
             input("Not a valid input.")

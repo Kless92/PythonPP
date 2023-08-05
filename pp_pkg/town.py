@@ -3,8 +3,8 @@ from pp_pkg import town_interiors, cross_roads, bag
 def welcomeToTown(char, bool):
     if bool == True:
         print("The", char,
-              "came to a small town.\nThought the sun is height, it looks and feels empty.\nMost are insaide look thought the windows.")
-        input("You heard rumor of a monster picking off travler close by so. \nIt would be easy money, should head to the Town Hall.")
+              "came to a small town.\nThought the sun is height, it looks and feels empty.\nMost are inside look thought the windows.")
+        input("You heard rumor of a 'monster' picking off travler close by so. \nIt would be easy money, should head to the 'Town Hall'.")
     else:
         print("The", char, "return to the small town.")
 
@@ -14,6 +14,9 @@ def welcomeToTown(char, bool):
 
         if bag.checkBag(a) == True:
             continue
+        if bag.helpMe(a) == True:
+            continue
+
         if a == "1" or a.lower() == "town hall" or a.lower() == "townhall":
             town_interiors.townHall(char)
             break
@@ -29,7 +32,7 @@ def welcomeToTown(char, bool):
         elif a == "5" or a.lower() == "church":
             town_interiors.church(char)
             break
-        elif a == "6" or a.lower() == "exit town" or a.lower() == "exittown":
+        elif a == "6" or a.lower() == "exit" or a.lower() == "leave":
             cross_roads.theCrossRoads(char)
             break
         else:
