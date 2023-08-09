@@ -99,7 +99,10 @@ He's looking for his dog who was chaseing a deer
 You go deeper in to the forest looking for it
 
 
-To reach the dog, you must enter: Up, Left, Left, Up, Up, Right, Up, Right
-If you dotn enter in the correct order you end up right back were you are.
-If the input order is correct you will find the dog sleeping near a tree.
-You go up to the dog but get surrounded by wolves.
+To reach the dog, you must enter The forest
+You'll find the dog resting near a tree.
+The dog is injured and a three wolves attack you.
+Depending on the class effects the combat.
+You can save the dog if you have potion or a bandage.
+If you save the dog the hunter will tell you were to go.
+If not he will no long be in the game.
