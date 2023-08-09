@@ -15,12 +15,17 @@ def checkBag(a):
 def helpMe(a):
     if a.lower() == "help":
         print("Type b or bag to check your inventory")
+        print("Type name of a item to use it")
         print("Type 1-9 if the options have numbers on it or its name, 1 or 2 words")
         print("Type y or n for yes or no.")
         print("Type words like question, ask, monster, buy or supplies")
         print("Type exit or leave to exit current location")
         input("Look for quotes on key words.")
         return True
+    
+#Repeat of Invalid inputs
+def invalid():
+    print("Not a vaild input please type 1-5 or the name as one of two words.")
 
 #If map is in you bag, then discription is be printed out
 def checkMap(a):
@@ -31,3 +36,12 @@ def checkMap(a):
             return True
         else:
             return False
+        
+#using item
+def useItem(a, char):
+    if a in bag:
+        print(char,"used",a,".")
+        bag.remove(a)
+    else:
+        print(a,"isn't in you bag.")
+        return False

@@ -5,7 +5,6 @@ generalStoreFirst = True
 magicShopFirst = True
 innFirst = True
 churchFirst = True
-haveMap = True
 generalSupp = True
 magicSupp = True
 theifSupp = True
@@ -15,22 +14,24 @@ theifInfo = True
 
 # Town Hall fucntion
 def townHall(char):
-    global townHallFirst, haveMap
+    global townHallFirst
 
     if townHallFirst == True:
-        print("The", char, "enter the Town Hall and notice a anxious large man pascing around mubbling to himself.")
+        print("The", char, "enter the Town Hall and notice a anxious large man paceing around mubbling to himself.")
         print("The large man notice the", char,
-              ", given a suprice and then a excited look.")
+              ", given a suprice and then excited look.")
         input("Please come over I wish to speak with you!")
-        print("You timming couldn't be anymore perfice.  I can tell that you the adventuring kind and I happen to have a bounty for you.")
+        print("You timming couldn't be anymore perfice.  I can tell that you the adventuring kind and I just happen to have a bounty for someone like you.")
         print("Theres a 'Monster' that lives 'North' of here and has ben tarizing this community for too long.")
         print("So I ask you", char, ". Would you help us?")
         while True:
             a = input("What should you do: ")
 
             if a.lower() == "y" or a.lower() == "yes":
-                print(
-                    "That excelent!  I knew you would say that the moment I layed eyes on you.")
+                print("That excelent!  I knew you would say that the moment I layed eyes on you.")
+                input("Now you might get lost on the way so here something from me")
+                bag.bag.append("map")
+                input("The Mayer has givin you a map")
                 input("Now if there anything more you need just ask away.")
                 townHallFirst = False
                 break
@@ -38,33 +39,24 @@ def townHall(char):
                 print("Oh I see, I was wrong about you. Well", char, ".")
                 input("I recommend that you leave this town before it too late.")
                 game_over.rejectJob(char)
-                break
             else:
-                print("I dont undersatnd?  You you help us or not?")
+                print("I dont undersatnd?  Will you help us or not?")
     else:
-        print("Wlecome back", char, "said the Mayer? Did you need something?")
+        print("Welcome back", char, ". Did you need something?")
     while True:
-        print("1.) Were is this monster again.\n2.) Ask about the monster.\n3.) Return to the town.")
+        print("1.) 'Were' is this monster 'location' again.\n2.) 'Ask' about the monster.\n3.) Return to the town.")
         a = input("What should you do: ")
         if bag.checkBag(a) == True:
             continue
-        if a == "1" or a.lower() == "ask" or a.lower() == "question":
-            if haveMap == True:
-                input(
-                    "Ahhh yes it North from twon up in the Mountain.\nBut there are many diffrent land marks here take this.")
-                bag.bag.append("map")
-                input("The Mayer has givin you a map")
-                haveMap = False
-            else:
-                input(
-                    "I already told you, its North in the Mountains.\nIf you want another map too bad.\nEveryone gets one.")
-
-        elif a == "2" or a.lower() == "monster":
+        if a == "1" or a.lower() == "were" or a.lower() == "location":
+            print("Its North from town up in the Mountain.\nIt should be on your map.")
+            input("I would take a look at it when you reach the 'crossroads'.")
+        elif a == "2" or a.lower() == "monster" or a.lower() == "ask":
             print("I personally dont know what kind of monster it is, so you should ask around town")
         elif a == "3" or a.lower() == "exit" or a.lower() == "leave":
             town.welcomeToTown(char, False)
         else:
-            input("Not a valid input.")
+            bag.invalid()
 # General Store Fucntion
 def generalStore(char):
     global generalStoreFirst, generalSupp
@@ -72,7 +64,7 @@ def generalStore(char):
     if generalStoreFirst == True:
         print("Inside the", char,
               "notices vary little items in this store.\nThis store must have had better days.")
-        input("A large man stood behind a table with mutton shops and his bottom lip pucker out.")
+        input("A large man stood behind a table with mutton chops and his bottom lip pucker out.")
 
         if char == "Theif":
             print("Hello....", char, "?")
@@ -109,9 +101,9 @@ def generalStore(char):
                       ".\nBut with that thing running around business will never pick up.")
                 input("So here some potions to help out.")
                 for i in range(3):
-                    bag.bag.append("Potion")
+                    bag.bag.append("potion")
                 generalSupp = False
-                input("You were givin 3 Potions.")
+                input("You were givin 3 potions.")
             else:
                 input("Im afriend I dont have anything else that I can give you.")
         elif a == "2" or a.lower() == "ask" or a.lower() == "monster":
@@ -125,7 +117,7 @@ def generalStore(char):
         elif a == "3" or a.lower() == "exit" or a.lower() == "leave":
             town.welcomeToTown(char, False)
         else:
-            input("Not a valid input.")
+            bag.invalid()
 # Magic Shop Function
 def magicShop(char):
     global magicShopFirst, magicSupp
@@ -169,7 +161,7 @@ def magicShop(char):
                       ".\nWell I think I can give you a few items.")
                 input("These elixer would do nicely.")
                 for i in range(3):
-                    bag.bag.append("Elixer of Arcan")
+                    bag.bag.append("elixer of arcan")
                 magicSupp = False
                 input("You were givin 3 Elixer of Arcan.")
             else:
@@ -179,13 +171,12 @@ def magicShop(char):
                 print("Why yould I ever tell you anything", char, ".")
                 input("LEAVE MY SHOP AT ONCE!")
             else:
-                print(
-                    "At my age I bearly ever leave my shop,\nI heard Inn Keep saw what it looks like.")
+                print("At my age I bearly ever leave my shop,\nI heard Inn Keep saw what it looks like.")
                 input("I would ask her.")
         elif a == "3" or a.lower() == "exit" or a.lower() == "leave":
             town.welcomeToTown(char, False)
         else:
-            input("Not a valid input.")
+            bag.invalid()
 # Church Fucntion
 def church(char):
     global churchFirst, churchSupp
@@ -234,7 +225,7 @@ def church(char):
         elif a == "3" or a.lower() == "exit" or a.lower() == "leave":
             town.welcomeToTown(char, False)
         else:
-            input("Not a valid input.")
+            bag.invalid()
 # Inn Fucntion
 def inn(char):
     global innFirst
@@ -254,6 +245,8 @@ def inn(char):
             innKeeper(char)
         elif a == "2" or a.lower() == "man" or a.lower() == "corner":
             stranger(char)
+        else:
+            bag.invalid()
 # Inkeeper Fucntion
 def innKeeper(char):
     global innRumor
@@ -280,14 +273,14 @@ def innKeeper(char):
                 print(
                     "I know the rumors that I seen the 'monster' but no I havent.\nHow the huntsman has, he told me himself.")
                 input(
-                    "Hes not here now but he is out in the forest,\nwest from the cross roads north of town")
+                    "Hes not here now but he is out in the 'Lost Forest',\nwest from the 'Cross Roads' north of town")
                 innRumor = False
             else:
-                input("I already told you the huntsman is in the forest,\nwest from the cross roads north of town.\nDont you have a Map?")
+                input("I already told you the huntsman is in the 'Lost Forest',\nwest from the 'Cross Roads' north of town.\nDont you have a Map?")
         elif a == "3" or a.lower() == "exit" or a.lower() == "leave":
             town.welcomeToTown(char, False)
         else:
-            input("Not a valid input.")
+            bag.invalid()
 # Stranger Fucntion
 def stranger(char):
     while True:
@@ -301,9 +294,9 @@ def stranger(char):
             if char == "Theif":
                 if theifSupp == True:
                     print("Well well well, a", char,
-                          "whos a fellow guild member I see.\nIf you looken to fence your out of luck.")
+                          "whos also a fellow guild member.\nIf you looken to fence your out of luck.")
                     print(
-                        "Im as broke as everyone else in this town. \nIf your in the bussness of killing the problem then im your man.")
+                        "Im as broke as everyone else in this town.\nBut if your in the bussness of killing our problem then im your man.")
                     input(
                         "Here are a few things from the guild, free of charge.\nJust dont come back till its dead")
                     bag.bag.append("Lock Pick")
@@ -311,21 +304,17 @@ def stranger(char):
                     input("You were givin Lock Pick and Posion.")
                     theifSupp = False
                 else:
-                    input(
-                        "You better had done that job.\nOr else why you bothering me?")
+                    input("You better had done that job.\nOr else why you bothering me?")
             else:
                 print("Do i look like a Merchant", char, "?")
                 input("Now piss off you dunce.")
         elif a == "2" or a.lower() == "ask" or a.lower() == "monster":
             if char == "Theif":
                 if theifInfo == True:
-                    print(
-                        "Well I can tell you everyone in this town dont know a damn thing about it.")
+                    print("Well I can tell you everyone in this town dont know a damn thing about it.")
                     print("Its a Demon Lord and it been cutting into guild business.")
-                    print(
-                        "Now you never head it from me but\nin the marsh lands, east of the cross roads,\nis a large tree stomp under it is a chest.")
-                    input(
-                        "Open it up and there should be something that should kill it.\nNow get that son of a bitch.")
+                    print("Now you never head it from me but\nin the 'Marsh Lands', east of the 'Cross Roads',\nis a large tree stomp and under it is a chest.")
+                    input("Open it up and there should be something that should kill it.\nNow get that son of a bitch.")
                 else:
                     print("What did you forget or somthing? You soft in the head?")
                     print(
@@ -338,4 +327,4 @@ def stranger(char):
         elif a == "3" or a.lower() == "exit" or a.lower() == "leave":
             town.welcomeToTown(char, False)
         else:
-            input("Not a valid input.")
+            bag.invalid()

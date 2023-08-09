@@ -1,13 +1,15 @@
-from pp_pkg import town, forest, bag
+from pp_pkg import town, forest, marches, mountains, bag
 
 crossRoadsFirst = True
+doneWithForest = False
+doneWithMarches = False
 
 def mapCheck():
     if "map" in bag.bag:
         return True
 
 def theCrossRoads(char):  
-    global crossRoadsFirst
+    global crossRoadsFirst, doneWithForest, doneWithMarches
 
     if crossRoadsFirst == True:
         print("The",char,"travel over an hour till eventually reached a cross roads.\nSouth would obviously take the",char,"back to town.")
@@ -30,15 +32,25 @@ def theCrossRoads(char):
             if bag.checkMap(a) == True:
                 continue
         if a == "1" or a.lower() == "north":
-            print()
-        elif a == "2" or a.lower() == "west":
-            forest.lost_forest(char)
+            mountains.mountains(char)
             break
+        elif a == "2" or a.lower() == "west":
+            if doneWithForest == True:
+                input("No reason to go there anymore.")
+                continue
+            else:
+                forest.lost_forest(char)
+                break
         elif a == "3" or a.lower() == "east":
-            print()
+            if doneWithMarches == True:
+                input("No reason to go there anymore.")
+                continue
+            else:
+                marches.marchLands(char)
+                break
         elif a == '4' or a.lower() == "south":
             town.welcomeToTown(char, False)
             break
         else:
-            print("Not a vaild Input.")
+            bag.invalid()
 
