@@ -37,7 +37,7 @@ def checkMap(a):
         else:
             return False
         
-#using item
+#useitem
 def useItem(a, char):
     if a in bag:
         print(char,"used",a,".")

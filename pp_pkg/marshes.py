@@ -59,6 +59,11 @@ def oldShak(char):
     while True:
         print("1.) 'Knock' on the 'Door'.\n2.) Leave")
         a = input("What would you do: ")
+        if bag.helpMe(a) == True:
+            continue
+        if bag.checkBag(a) == True:
+            continue
+
         if a == "1" or a.lower() == "knock" or a.lower() == "door":
             if oldWomenFirst == True:
                 print("After knocking the door, a elderly came out hunched over look at you with one lazy eye open.")
@@ -96,6 +101,11 @@ def largeTrunk(char):
         print("1.) 'Open' the chest.\n2.) 'Leave'")
         a = input("What should you do: ")
 
+        if bag.helpMe(a) == True:
+            continue
+        if bag.checkBag(a) == True:
+            continue
+
         if a == "1" or a.lower() == "open":
             print("The",char,"tried opening the chest but its locked.")
             while True:
@@ -113,16 +123,24 @@ def largeTrunk(char):
 
 def theCrypt(char):
     print("The",char,"stands at the enters to the crypt.\nYou can feel a frozen breez coming from down below.\nBut like the old women said,")
-    input("deep inside is the key. So down you go")
-    print("It feels more cold then the breez at the entrence.\nAnd it doesn't help that it now pitch black.")
+    input("deep inside is the key. So down you go.")
+    print("It feels more cold down here then the breez at the entrence.\nAnd it doesn't help that it pitch black.")
 
     while True:
-        a = input("You'll need the tourch: ")
+        a = input("You'll need your tourch: ")
+        if bag.helpMe(a) == True:
+            continue
+        if bag.checkBag(a) == True:
+            continue
         if a.lower() == "tourch":
             if bag.useItem(a.lower(), char) == False:
                 continue
-            else:
-                break
+            bag.bag.append("lit tourch")
+            input("Your Tourch is now a 'Lit Tourch'.")
+            break
+        else:
+            bag.invalid()
+            continue
     
     print("Now the visibility is much better.\nThe",char,"can see row of decaying corpes,\npile on shelves, with some having ther limbs hanging off.")
     input("This crypt is more like a catacomb.")
@@ -186,8 +204,8 @@ def necroFight(char):
     print("Deeper the",char,"venture fighting off more and more of the undead\nuntil a light catchs your eye.\nBlue fire filled a medium size room and bodies were on the floor.")
     print("In the center was a tall clocked man in all back fiddling with a body on a large slab, with tool at his disposal.")
     input("It was a Necro Manser!")
-    print("The",char,"put down the touch,")
-    input("Back aginst the wall, peaking around the corner\nstaring at the Necro Manser.")
+    print("The",char,"held the 'lit tourch' close, back agisnt the wall,")
+    input("peaking around the corner staring at the Necro Manser.")
 
     while True:
         print("1.) Charge\n2.) Shoot\n3.) Cast\n4.) Sneak")
@@ -214,3 +232,19 @@ def necroFight(char):
                 continue
         elif a == "4" or a.lower() == "sneak":
             game_over.necroSneak(char, 5)
+        elif a.lower() == "lit tourch":
+            if bag.useItem(a.lower(), char) == False:
+                continue
+            print("The",char,"throw the 'lit tourch' at the Necro Manser")
+            print("He then suddenly suddenly vanish as the tourch lands and engult the corps in flames.")
+            input("What the hell, he shouted, That was fresh corps now your dead!")
+            necroDeath(char)
+            break
+        else:
+            bag.invalid()
+            continue
+
+def necroDeath(char):
+    while True:
+        print("1.) Charge\n2.) Shoot\n3.) Cast\n4.) Sneak")
+        a = input("What should you do: ")

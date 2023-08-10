@@ -47,8 +47,8 @@ def necroCharge(char, number):
 
 def necroShoot(char, number):
     print("The",char,"fired a arrow at the Necro Manser,\nbut he suddenly vanish as the arrow flew into wall.")
-    print("The",char,"felt a deadly touch from behind,")
-    input("and sure enought the Necro Manser was.")
+    print("The",char,"saw the Necro Manser on the right of the room,\nthe",char,"was too slow to draw another arrow.")
+    input("For the Necro Mancer struck back.")
     necroBlast(char, number)
 
 def necroCast(char, number):
@@ -60,7 +60,7 @@ def necroSneak(char, number):
     print("The",char,"sneak twords the Necro Manser but suddenly froze soild.\nIt was a trad")
     input("The Necro Manser turn, shock, but then start laughing maniacally.")
     choice(char, number)
-    
+
 def necroBlast(char, number):
     print("He then cast a spell and on the",char)
     input("who is now a walking corpse")
