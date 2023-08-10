@@ -28,11 +28,11 @@ def arrowFlys(char):
     choice(char, 2)
 
 def failedCharge(char, number):
-    print("The",char,"Charge into the enemy and failed.\nRipped appart the,",char,"felt before death finail relase from thee suffering.")
-    input("Rest in piece")
+    print("The",char,"Charge into the enemy and failed.\nRipped appart the,",char,"felt,")
+    input("untill death finally relase thee from suffering.")
     choice(char, number)
     
 def sneakFailed(char, number):
-    print("The",char,"tryied to sneak over but failed.\nThe deatils were lost but i belive the",char,"suffered a painfull death.")
-    input("Rest in piece")
+    print("The",char,"tryied to sneak over but failed.")
+    input("The deatils are unknow but lets assume the was painfull death.")
     choice(char, number)

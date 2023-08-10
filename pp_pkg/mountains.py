@@ -12,7 +12,7 @@ def mountains(char):
         input()
     
     while True:
-        print("1.) Go up to High Point\n2.) Head towards the Low Cave.\n3.) Take the Odd Path\n4.) Leave the area")
+        print("1.) Go up to High Point\n2.) Head towards the Low Cave.\n3.) Take the Odd Path\n4.) 'Leave' the area")
         a = input("What should you do: ")
 
         if a == "1" or a.lower() == "go" or a.lower() == "enter":

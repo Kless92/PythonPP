@@ -13,11 +13,11 @@ def lost_forest(char):
         input("Should probally investigate.")
         forestFirst = False
     else:
-        print(char,"returns to the entrance,")
-        input("of the Lost Forest.")
+        print("The",char,"returns to the entrance,")
+        input(" of the 'Lost Forest'.")
     
     while True:
-        print("1.) Go into the Lost Forest\n2.) Head left to investigate.\n3.) Leave the area")
+        print("1.) Go into the Lost Forest\n2.) Head left to investigate.\n3.) 'Leave' the area")
         a = input("What should you do: ")
         if bag.helpMe(a) == True:
             continue
@@ -31,7 +31,7 @@ def lost_forest(char):
             cross_roads.theCrossRoads(char)
             break
         else:
-            input("Not a valied input.")
+            bag.invalid
 
 def intoLostForest(char):
     print("Into the forest the",char,"enter. \nAfter some time pass, moving deeper in,\nvisiablity from a distance became almost impossible.")
@@ -65,7 +65,7 @@ def invTheLeft(char):
     input("It looks almost new.\nShould look more closely into it.")
 
     while True:
-        print("1.) Investigate the camp.\n2.) Leave the camp.")
+        print("1.) Investigate the camp.\n2.) 'Leave' the camp.")
         a = input("What should you do: ")
         if bag.helpMe(a) == True:
             continue
@@ -97,7 +97,7 @@ def battleOfWolves(char):
     input("You go in and I'll fallow now hurry.")
     
     while True:
-        print("1.) Charge\n2.) Shoot\n3.) Cast\n4.) Sneak\n5.) Do Nothing")
+        print("1.) Charge\n2.) Shoot\n3.) Cast\n4.) Sneak")
         a = input("What should you do:")
         if bag.helpMe(a) == True:
             continue
@@ -144,6 +144,8 @@ def battleOfWolves(char):
                 break
             else:
                 game_over.sneakFailed(char, 3)
+        else:
+            bag.invalid()
     
     print("The hunter shoot the other wolf and the soul survivor run into the forest.")
     print("Both the",char,"and hunter run the the injured dog.")
@@ -162,8 +164,7 @@ def battleOfWolves(char):
             print("Now you probly want to know about the monster.\nWell it not a monster, its a 'Demon Lord'.")
             input("I seen it myself and it a hug one.")
             print("And seeing that your up aginst a 'Demon Lord' I think theirs something that can kill it.")
-            print("In the 'March Lands', east of the 'cross roads' a large tree stomp and under it is a chest")
-            input("Now I dont know whats in it, mostly because I can't open it,\nbut I belive the a old 'Hermit' hiding in the 'shake' in the 'March Lands' might help you with that.")
+            input("In the 'Marsh Lands', east of the 'cross roads' is a 'shack' and living in it is a Old Women.\nI think she'll be able to help you.")
             if char == "Archer":
                 print("I can but help notice your a",char,"and seeing how you saved my dog,")
                 input("I wanted to give you this.")

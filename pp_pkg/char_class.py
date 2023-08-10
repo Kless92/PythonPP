@@ -33,6 +33,7 @@ def characterSelection():
             char = pala
         else:
             input("Invalid Input.  Please type 1-5 or name of the character class.")
+            continue
 
         while True:
             print("Are you use about your chice as a",char,"?") 

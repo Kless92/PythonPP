@@ -69,7 +69,7 @@ def generalStore(char):
         if char == "Theif":
             print("Hello....", char, "?")
             input(
-                "Well as you can see i have nothing valuable here so why don't you leave; Now.")
+                "Well as you can see i have nothing valuable here so why don't you 'leave'; Now.")
             generalStoreFirst = False
         else:
             print("Hello", char, "and welcome.")
@@ -78,7 +78,7 @@ def generalStore(char):
     else:
         if char == "Theif":
             print("Why did you back", char, ".")
-            input("I told you to leave my store.")
+            input("I told you to 'leave' my store.")
         else:
             print("Welcome back", char, "do you still need something?")
 
@@ -127,7 +127,7 @@ def magicShop(char):
         input("The old own sat on a stool old and decrypted")
         if char == "Theif":
             print("Hello....", char, "!")
-            input("I have no gold in my shop so leave before you fouce my magic.")
+            input("I have no gold in my shop so 'leave' before you fouce my magic.")
             magicShopFirst = False
         else:
             print("Hello", char, ",")
@@ -136,7 +136,7 @@ def magicShop(char):
     else:
         if char == "Theif":
             print("Did my warnning not get thoguht you head", char, ".")
-            input("Leave now or else.")
+            input("'Leave' now or else.")
         else:
             print(char, "your back.")
             input("Do you still require my assistance?")
@@ -169,9 +169,9 @@ def magicShop(char):
         elif a == "2" or a.lower() == "ask" or a.lower() == "monster":
             if char == "Theif":
                 print("Why yould I ever tell you anything", char, ".")
-                input("LEAVE MY SHOP AT ONCE!")
+                input("'LEAVE' MY SHOP AT ONCE!")
             else:
-                print("At my age I bearly ever leave my shop,\nI heard Inn Keep saw what it looks like.")
+                print("At my age I bearly ever 'leave' my shop,\nI heard Inn Keep saw what it looks like.")
                 input("I would ask her.")
         elif a == "3" or a.lower() == "exit" or a.lower() == "leave":
             town.welcomeToTown(char, False)

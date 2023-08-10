@@ -32,7 +32,7 @@ def checkMap(a):
     if a == "5" or a.lower() == "map":
         if "map" in bag:
             print("On the map you see A Cross Roads in the center.\nTo the North are Mountains.")
-            input("West is the Lost Forest.\nEast the Mash Lands.\nAnd South the Town.")
+            input("West is the Lost Forest.\nEast the Marsh Lands.\nAnd South the Town.")
             return True
         else:
             return False
