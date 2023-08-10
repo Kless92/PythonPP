@@ -1,4 +1,4 @@
-from pp_pkg import town_interiors, forest
+from pp_pkg import town_interiors, forest, marshes
 def choice(char, num):
     while True:
         a = input("Do you wish to continue: ")
@@ -9,6 +9,10 @@ def choice(char, num):
                 forest.intoLostForest(char)
             elif num == 3:
                 forest.battleOfWolves(char)
+            elif num == 4:
+                marshes.theCrypt(char)
+            elif num == 5:
+                marshes.necroFight(char)
         elif a.lower() == "n" or a.lower() == "no":
             quit()
         else:
@@ -35,4 +39,29 @@ def failedCharge(char, number):
 def sneakFailed(char, number):
     print("The",char,"tryied to sneak over but failed.")
     input("The deatils are unknow but lets assume the was painfull death.")
+    choice(char, number)
+
+def necroCharge(char, number):
+    print("The",char,"charge the Necro Manser\nbut he notice you before you could reach him. ")
+    necroBlast(char, number)
+
+def necroShoot(char, number):
+    print("The",char,"fired a arrow at the Necro Manser,\nbut he suddenly vanish as the arrow flew into wall.")
+    print("The",char,"felt a deadly touch from behind,")
+    input("and sure enought the Necro Manser was.")
+    necroBlast(char, number)
+
+def necroCast(char, number):
+    print("The",char,"cast a spell at the Necro Manser but it was absorbed by a magic sheild")
+    input("You think im some novice? How pathetic.")
+    necroBlast(char, number)
+
+def necroSneak(char, number):
+    print("The",char,"sneak twords the Necro Manser but suddenly froze soild.\nIt was a trad")
+    input("The Necro Manser turn, shock, but then start laughing maniacally.")
+    choice(char, number)
+    
+def necroBlast(char, number):
+    print("He then cast a spell and on the",char)
+    input("who is now a walking corpse")
     choice(char, number)

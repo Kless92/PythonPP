@@ -43,8 +43,6 @@ def marshLands(char):
             cross_roads.theCrossRoads(char)
             break
 
-
-
 def oldShak(char):
     
     global shackFirst 
@@ -148,7 +146,7 @@ def theCrypt(char):
                 input("Sliceing it in half with a Great Sword.")
                 break
             else:
-                game_over.failedCharge(char, 3)
+                game_over.failedCharge(char, 4)
         elif a == "2" or a.lower() == "shoot":
             if char == "Archer":
                 print("The",char,"fired a arrow at the center of the skeleton chest.")
@@ -168,7 +166,7 @@ def theCrypt(char):
                 input("Turning it into a pile of ash.")
                 break
             else:
-                print("The",char,"doesn't know nay spells")
+                print("The",char,"doesn't know any spells")
                 input("So nothing happen.")
                 continue
         elif a == "4" or a.lower() == "sneak":
@@ -177,14 +175,14 @@ def theCrypt(char):
                 input("A quick strack with the daggers hilt and the skeleton fell with a shattered skull.")
                 break
             else:
-                game_over.sneakFailed(char, 3)
+                game_over.sneakFailed(char, 4)
         else:
             bag.invalid()
+    print("Soon more sound of crakling bones and flash scramping off the rough floor fill the Crypt.")
+    input("It was invested with undead!")    
     necroFight(char)
 
 def necroFight(char):
-    print("Soon more sound of crakling bones and flash scramping off the rough floor fill the Crypt.")
-    input("It was invested with undead!")
     print("Deeper the",char,"venture fighting off more and more of the undead\nuntil a light catchs your eye.\nBlue fire filled a medium size room and bodies were on the floor.")
     print("In the center was a tall clocked man in all back fiddling with a body on a large slab, with tool at his disposal.")
     input("It was a Necro Manser!")
@@ -194,3 +192,25 @@ def necroFight(char):
     while True:
         print("1.) Charge\n2.) Shoot\n3.) Cast\n4.) Sneak")
         a = input("What should you do: ")
+        if bag.helpMe(a) == True:
+            continue
+        if bag.checkBag(a) == True:
+            continue
+        if a == "1" or a.lower() == "charge":
+            game_over.necroCharge(char, 5)
+        elif a == "2" or a.lower() == "shoot":
+            if char == "Archer":
+                game_over.necroShoot(char, 5)
+            else:
+                print("The",char,"doesn't have any projectile weapon.")
+                input("So nothing happen.")
+                continue
+        elif a == "3" or a.lower() == "cast":
+            if char == "Mage" or char == "Paladin":
+                game_over.necroCast(char, 5)
+            else:
+                print("The",char,"doesn't know any spells")
+                input("So nothing happen.")
+                continue
+        elif a == "4" or a.lower() == "sneak":
+            game_over.necroSneak(char, 5)
