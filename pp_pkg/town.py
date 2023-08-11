@@ -1,6 +1,9 @@
 from pp_pkg import town_interiors, cross_roads, bag
+gotItems = True
 
 def welcomeToTown(char, firstTime):
+    global gotItems
+
     if firstTime == True:
         print("The", char,
               "came to a small town.\nThought the sun was height, it looks and feels empty.\nMost of the towns folk were inside look thought their windows.")
@@ -43,6 +46,8 @@ def welcomeToTown(char, firstTime):
         elif a == "6" or a.lower() == "exit" or a.lower() == "leave":
             if goToTownHall(firstTime) == True:
                 continue
+            if getSomeThings(gotItems) == True:
+                continue
             cross_roads.theCrossRoads(char)
             break
         else:
@@ -51,6 +56,13 @@ def welcomeToTown(char, firstTime):
 def goToTownHall(firstTime):
     if firstTime == True:
         input("You should go to the Town Hall first.")
+        return True
+    else:
+        return False
+
+def getSomeThings(items):
+    if items == True:
+        input("You should get some supplies first.")
         return True
     else:
         return False

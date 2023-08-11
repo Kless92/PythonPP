@@ -1,4 +1,4 @@
-from pp_pkg import cross_roads, bag, game_over
+from pp_pkg import cross_roads, bag, game_over, attacks
 
 forestFirst = True
 investFirst = True
@@ -120,8 +120,7 @@ def battleOfWolves(char):
                 input("Killing it in one perfict shoot.")
                 break
             else:
-                print("The",char,"doesn't have any projectile weapon.")
-                input("So nothing happen.")
+                attacks.noProjectile(char)
                 continue
         elif a == "3" or a.lower() == "cast":
             if char == "Mage":
@@ -133,8 +132,7 @@ def battleOfWolves(char):
                 input("Cause the wolf to howell in pain as it runs away.")
                 break
             else:
-                print("The",char,"doesn't know nay spells")
-                input("So nothing happen.")
+                attacks.noSpells(char)
                 continue
         elif a == "4" or a.lower() == "sneak":
             if char == "Theif":

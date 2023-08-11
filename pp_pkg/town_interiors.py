@@ -103,6 +103,7 @@ def generalStore(char):
                 for i in range(3):
                     bag.bag.append("potion")
                 generalSupp = False
+                town.gotItems = False
                 input("You were givin 3 potions.")
             else:
                 input("Im afriend I dont have anything else that I can give you.")
@@ -163,6 +164,7 @@ def magicShop(char):
                 for i in range(3):
                     bag.bag.append("elixer of arcan")
                 magicSupp = False
+                town.gotItems = False
                 input("You were givin 3 Elixer of Arcan.")
             else:
                 input("Im afriend I have nothign else to offer.")
@@ -202,8 +204,9 @@ def church(char):
                     input(
                         "Here thes holy symbles will help you vanquish this evil from our town.")
                     for i in range(3):
-                        bag.bag.append("Symbol of Kings")
+                        bag.bag.append("symbol of kings")
                         churchSupp = False
+                        town.gotItems = False
                     input("You were givin 3 Symbol of Kings.")
                 else:
                     print("Im afraid that all I have to give")
@@ -299,10 +302,11 @@ def stranger(char):
                         "Im as broke as everyone else in this town.\nBut if your in the bussness of killing our problem then im your man.")
                     input(
                         "Here are a few things from the guild, free of charge.\nJust dont come back till its dead")
-                    bag.bag.append("Lock Pick")
-                    bag.bag.append("Posion")
-                    input("You were givin Lock Pick and Posion.")
+                    bag.bag.append("lock pick")
+                    bag.bag.append("posion")
                     theifSupp = False
+                    town.gotItems = False
+                    input("You were givin Lock Pick and Posion.")
                 else:
                     input("You better had done that job.\nOr else why you bothering me?")
             else:
@@ -313,12 +317,12 @@ def stranger(char):
                 if theifInfo == True:
                     print("Well I can tell you everyone in this town dont know a damn thing about it.")
                     print("Its a Demon Lord and it been cutting into guild business.")
-                    print("Now you never head it from me but\nin the 'Marsh Lands', east of the 'Cross Roads',\nis a large tree stomp and under it is a chest.")
+                    print("Now you never head it from me but\nin the 'Marsh Lands', east of the 'Cross Roads',\nis a large Tree Stump and under it is a chest.")
                     input("Open it up and there should be something that should kill it.\nNow get that son of a bitch.")
                 else:
                     print("What did you forget or somthing? You soft in the head?")
                     print(
-                        "Its a Demon Lord, go to the marshs, find the stomp, get the weapon and kill it.")
+                        "Its a Demon Lord, go to the marshs, find the Stump, get the weapon and kill it.")
                     input("Got it?")
                 theifInfo = False
             else:

@@ -13,6 +13,11 @@ def choice(char, num):
                 marshes.theCrypt(char)
             elif num == 5:
                 marshes.necroFight(char)
+            elif num == 6:
+                marshes.necroDeath(char)
+            elif num == 7:
+                marshes.largeStump(char)
+
         elif a.lower() == "n" or a.lower() == "no":
             quit()
         else:
@@ -64,4 +69,9 @@ def necroSneak(char, number):
 def necroBlast(char, number):
     print("He then cast a spell and on the",char)
     input("who is now a walking corpse")
+    choice(char, number)
+
+def witchCurse(char, number):
+    print("The",char,"turned into a frog.")
+    input("Now the Witch will have frog stew tonight.")
     choice(char, number)
