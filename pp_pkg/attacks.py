@@ -1,3 +1,6 @@
+def attackOptions():
+    print("1.) Charge\n2.) Shoot\n3.) Cast\n4.) Sneak")
+
 def noProjectile(char):
     print("The",char,"doesn't have any projectile weapon.")
     input("So nothing happen.")

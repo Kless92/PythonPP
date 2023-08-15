@@ -1,4 +1,4 @@
-from pp_pkg import town_interiors, forest, marshes
+from pp_pkg import town_interiors, forest, marshes, mountains
 def choice(char, num):
     while True:
         a = input("Do you wish to continue: ")
@@ -17,7 +17,8 @@ def choice(char, num):
                 marshes.necroDeath(char)
             elif num == 7:
                 marshes.largeStump(char)
-
+            elif num == 8:
+                mountains.mountains(char)
         elif a.lower() == "n" or a.lower() == "no":
             quit()
         else:
@@ -74,4 +75,10 @@ def necroBlast(char, number):
 def witchCurse(char, number):
     print("The",char,"turned into a frog.")
     input("Now the Witch will have frog stew tonight.")
+    choice(char, number)
+
+def firstSrikeDemon(char, number):
+    print("You think you could touch me with you moratl hands?")
+    print("The 'Demon Lords' eyes gaze on the",char,"and was trun into a pile of dust.")
+    input("Never stood a chance")
     choice(char, number)

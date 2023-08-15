@@ -97,7 +97,7 @@ def battleOfWolves(char):
     input("You go in and I'll fallow now hurry.")
     
     while True:
-        print("1.) Charge\n2.) Shoot\n3.) Cast\n4.) Sneak")
+        attacks.attackOptions()
         a = input("What should you do:")
         if bag.helpMe(a) == True:
             continue

@@ -173,7 +173,7 @@ def theCrypt(char):
     input("And it was holding a blunt object.")
 
     while True:
-        print("1.) Charge\n2.) Shoot\n3.) Cast\n4.) Sneak")
+        attacks.attackOptions()
         a = input("What should you do: ")
         if bag.helpMe(a) == True:
             continue
@@ -233,7 +233,7 @@ def necroFight(char):
     input("peaking around the corner staring at the Necro Manser.")
 
     while True:
-        print("1.) Charge\n2.) Shoot\n3.) Cast\n4.) Sneak")
+        attacks.attackOptions()
         a = input("What should you do: ")
         if bag.helpMe(a) == True:
             continue
@@ -283,7 +283,7 @@ def necroFight(char):
 def necroRoundTwo(char):
     input("What the hell, he shouted, that was fresh corps; now your dead!")
     while True:
-        print("1.) Charge\n2.) Shoot\n3.) Cast\n4.) Sneak")
+        attacks.attackOptions()
         a = input("What should you do: ")
         if bag.helpMe(a) == True:
             continue
@@ -358,7 +358,7 @@ def oldWomanAtt(char):
         print("So you went straight to the chest without even coming to me first?!")
         input("Well looks like I'll have to show you a think or two")
     while True:
-        print("1.) Charge\n2.) Shoot\n3.) Cast\n4.) Sneak")
+        attacks.attackOptions()
         a = input("What should you do: ")
 
         if bag.helpMe(a) == True:
@@ -423,7 +423,9 @@ def oldWomanAtt(char):
     gotScroll(char)
 
 def gotScroll(char):
-    print("Inside the chest was a scroll. This is what the",char,"need to kill the 'Demon Lord'.")
+    print("Inside the chest was a scroll.\nOn it said its said 'Scroll of Weakening'.\nThis is what the",char,"need to finish the job.")
     input("Time to finish this job!")
+    bag.bag.append("scroll of weakening")
+    input("You have picked up the Scroll of Weakening")
     cross_roads.doneWithMarshes = True
     cross_roads.theCrossRoads(char)
