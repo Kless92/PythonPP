@@ -1,7 +1,7 @@
 from pp_pkg import cross_roads, bag, attacks, game_over
 
 mountFirst = True
-
+improvedWepon = False
 
 def mountains(char):
     global mountFirst
@@ -98,4 +98,7 @@ def demonLordIncounter(char):
 
 
 def demonLordFight(char):
-    pass
+    print("The 'Demon Lord' roar in pain as it crashs to the ground./nIt opens its gaze towards the",char,"and shown a face of anger and fustraction")
+    input("YOU THINK YOU COULD KILL ME WITH THAT PITIFUL MAGIC?\nYOU DIE HERE AND THAT NEST YOU CALLED HOME WILL BE BURNED TO THE GROUND!")
+    attacks.attackOptions()
+    a = input("What should you do: ")

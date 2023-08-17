@@ -4,33 +4,23 @@ crossRoadsFirst = True
 doneWithForest = False
 doneWithMarshes = False
 
-def mapCheck():
-    if "map" in bag.bag:
-        return True
-
 def theCrossRoads(char):  
     global crossRoadsFirst, doneWithForest, doneWithMarshes
 
     if crossRoadsFirst == True:
-        print("The",char,"travel over an hour till eventually reached a cross roads.\nSouth would obviously take the",char,"back to town.")
+        print("The",char.name,"travel over an hour till eventually reached a 'Cross Roads'.\nSouth would obviously return you back to town.")
         input("But were the others would take is unknown.")
+        crossRoadsFirst = False
     else:
-        print("The",char,"return to the cross roads")
+        print("The",char.name,"return to the 'Cross Roads',")
         input("once again.") 
-    crossRoadsFirst = False
+
 
     while True: 
         print("1.) North\n2.) West\n3.) East\n4.) South")
-        if mapCheck() == True:
-            print("5.) Map")
         a = input("Were do u want to go: ")
-        if bag.helpMe(a) == True:
+        if bag.threeActions(a, False) == True:
             continue
-        if bag.checkBag(a) == True:
-            continue
-        if mapCheck() == True:
-            if bag.checkMap(a) == True:
-                continue
         if a == "1" or a.lower() == "north":
             mountains.mountains(char)
             break

@@ -13,7 +13,7 @@ def checkBag(a):
     
 #Give tip for what to input
 def helpMe(a):
-    if a.lower() == "help":
+    if a.lower() == "h" or a.lower() == "help":
         print("Type b or bag to check your inventory")
         print("Type name of a item to use it")
         print("Type 1-9 if the options have numbers on it or its name, 1 or 2 words")
@@ -25,23 +25,33 @@ def helpMe(a):
     
 #Repeat of Invalid inputs
 def invalid():
-    print("Not a vaild input please type 1-5 or the name as one of two words.")
+    input("Not a vaild input please type 1-5 or the name as one of two words.")
 
 #If map is in you bag, then discription is be printed out
-def checkMap(a):
-    if a == "5" or a.lower() == "map":
-        if "map" in bag:
-            print("On the map you see A Cross Roads in the center.\nTo the North are Mountains.")
+def checkMap(a, atCrossRoads):
+    if a.lower() == "map":
+        if "map" not in bag:
+            invalid()
+        elif atCrossRoads == True:
+            print("On the map you see A 'Cross Roads' in the center.\nTo the North are Mountains.")
             input("West is the Lost Forest.\nEast the Marsh Lands.\nAnd South the Town.")
-            return True
         else:
-            return False
+            input("Theres no reason to use that right now.")
+        return True
         
 #useitem
 def useItem(a, char):
     if a in bag:
-        print(char,"used",a,".")
+        print(char.name,"used",a,".")
         bag.remove(a)
     else:
         print(a,"isn't in you bag.")
         return False
+    
+def threeActions(a, b):
+    if helpMe(a) == True:
+        return True
+    if checkBag(a) == True:
+        return True
+    if checkMap(a, b) == True:
+        return  True

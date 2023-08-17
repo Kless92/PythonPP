@@ -26,59 +26,58 @@ def choice(char, num):
 
 
 def rejectJob(char):
-    print("The",char," rejected the contract and left the small town.")
+    print("The",char.name," rejected the contract and left the small town.")
     print("You later learn that the mysteries monster has destory it and it inhabitants.")
     input("Could you have done something about it? Who knows now.")
     choice(char, 1)
     
 def arrowFlys(char):
-    print("Before the",char,"could do anything else, a shar pierce penetrated thought the chest.")
-    print("Blood fill the lunges and the vision begian to blure until finally death took the",char,".")
-    input("Rest in piece")
+    print("Before the",char.name,"could do anything else, a sharp pierce penetrated thought the chest.")
+    input("Blood fill the lunges and the vision begian to blure\nuntil finally death took the last breath was drawn.")
     choice(char, 2)
 
 def failedCharge(char, number):
-    print("The",char,"Charge into the enemy and failed.\nRipped appart the,",char,"felt,")
-    input("untill death finally relase thee from suffering.")
+    print("The",char.name,"charge towards the enemy and failed.")
+    input("You were ripped appart untill death finally end your suffering.")
     choice(char, number)
     
 def sneakFailed(char, number):
-    print("The",char,"tryied to sneak over but failed.")
-    input("The deatils are unknow but lets assume the was painfull death.")
+    print("The",char.name,"tryied to sneak over but failed.")
+    input("The deatils are unknow but you death was very painfull.")
     choice(char, number)
 
 def necroCharge(char, number):
-    print("The",char,"charge the Necro Manser\nbut he notice you before you could reach him. ")
+    print("The",char.name,"charge the 'Necro Manser'\nbut he notice you before you could reach him. ")
     necroBlast(char, number)
 
 def necroShoot(char, number):
-    print("The",char,"fired a arrow at the Necro Manser,\nbut he suddenly vanish as the arrow flew into wall.")
-    print("The",char,"saw the Necro Manser on the right of the room,\nthe",char,"was too slow to draw another arrow.")
-    input("For the Necro Mancer struck back.")
+    print("The",char.name,"fired a arrow at the 'Necro Manser',\nbut he suddenly vanish as the arrow flew into wall.")
+    print("You saw the 'Necro Manser' on the right of the room.")
+    input("And he then struck back.")
     necroBlast(char, number)
 
 def necroCast(char, number):
-    print("The",char,"cast a spell at the Necro Manser but it was absorbed by a magic sheild")
+    print("The",char.name,"cast",char.spell,"at the 'Necro Manser' but it was absorbed by a magic sheild")
     input("You think im some novice? How pathetic.")
-    necroBlast(char, number)
+    necroBlast(char.name, number)
 
 def necroSneak(char, number):
-    print("The",char,"sneak twords the Necro Manser but suddenly froze soild.\nIt was a trad")
-    input("The Necro Manser turn, shock, but then start laughing maniacally.")
+    print("The",char.name,"sneak twords the 'Necro Manser' but suddenly froze soild.\nIt was a trad")
+    input("The 'Necro Manser' turn, shock, but then start laughing maniacally.")
     choice(char, number)
 
 def necroBlast(char, number):
-    print("He then cast a spell and on the",char)
-    input("who is now a walking corpse")
+    print("He then cast a spell on the",char.name)
+    input("who was turned into a walking corpse")
     choice(char, number)
 
 def witchCurse(char, number):
-    print("The",char,"turned into a frog.")
+    print("The",char.name,"turned into a frog.")
     input("Now the Witch will have frog stew tonight.")
     choice(char, number)
 
 def firstSrikeDemon(char, number):
     print("You think you could touch me with you moratl hands?")
-    print("The 'Demon Lords' eyes gaze on the",char,"and was trun into a pile of dust.")
+    print("The 'Demon Lords' eyes gaze on the",char.name,"and was trun into a pile of dust.")
     input("Never stood a chance")
     choice(char, number)
