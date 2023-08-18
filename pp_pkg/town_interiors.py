@@ -38,6 +38,7 @@ def townHall(char,):
                 print("Oh I see, I was wrong about you. Well", char.name, ".")
                 input("I recommend that you leave this town before it too late.")
                 game_over.rejectJob(char)
+                break
             else:
                 print("I dont undersatnd?  Will you help us or not?")
     else:
@@ -45,8 +46,7 @@ def townHall(char,):
     while True:
         print("1.) 'Were' is this monster 'location' again.\n2.) 'Ask' about the monster.\n3.) Return to the town.")
         a = input("What should you do: ")
-        if bag.threeActions(a, False) == True:
-            continue
+
         if a == "1" or a.lower() == "were" or a.lower() == "location":
             print("Its North from town up in the Mountain.\nIt should be on your map.")
             input("I would take a look at it when you reach the 'crossroads'.")
@@ -54,6 +54,9 @@ def townHall(char,):
             print("I personally dont know what kind of monster it is, so you should ask around town")
         elif a == "3" or a.lower() == "exit" or a.lower() == "leave":
             town.welcomeToTown(char, False)
+            break
+        elif bag.threeActions(a) == True:
+            continue
         else:
             bag.invalid()
 # General Store Fucntion
@@ -83,8 +86,7 @@ def generalStore(char):
     while True:
         print("1.) Buy Supplies.\n2.) Ask about the monster.\n3.) Return to the town.")
         a = input("What should you do: ")
-        if bag.threeActions(a, False) == True:
-            continue
+
         if a == "1" or a.lower() == "buy" or a.lower() == "supplies" or a.lower == "buy supplies" or a.lower == "buysupplies":
             if char.name == "Theif":
                 input("IM NOT DOING BUSINESS WITH THE LIKES OF YOU!")
@@ -114,6 +116,9 @@ def generalStore(char):
                 input("I go check with her.")
         elif a == "3" or a.lower() == "exit" or a.lower() == "leave":
             town.welcomeToTown(char, False)
+            break
+        elif bag.threeActions(a) == True:
+            continue
         else:
             bag.invalid()
 # Magic Shop Function
@@ -143,8 +148,7 @@ def magicShop(char):
         print("1.) Buy Supplies.\n2.) Ask about the monster.\n3.) Return to the town.")
         a = input("What should you do: ")
         if a == "1" or a.lower() == "buy" or a.lower() == "supplies" or a.lower == "buy supplies" or a.lower == "buysupplies":
-            if bag.threeActions(a, False) == True:
-                continue
+
             if char.name == "Theif":
                 input("IM NEVER DO BUSINESS WITH SOMEONE IN THAT PROFESSION!")
             elif char.name == "Warrior" or char.name == "Archer":
@@ -174,6 +178,9 @@ def magicShop(char):
                 input("I would ask her.")
         elif a == "3" or a.lower() == "exit" or a.lower() == "leave":
             town.welcomeToTown(char, False)
+            break
+        elif bag.threeActions(a) == True:
+            continue
         else:
             bag.invalid()
 # Church Fucntion
@@ -193,8 +200,7 @@ def church(char):
         print("1.) Buy Supplies.\n2.) Ask about the monster.\n3.) Return to the town.")
         a = input("what should you do: ")
         if a == "1" or a.lower() == "buy" or a.lower() == "supplies" or a.lower() == "buy supplies" or a.lower() == "buysupplies":
-            if bag.threeActions(a, False) == True:
-                continue
+
             if char.name == "Paladin":
                 if churchSupp == True:
                     print("A", char.name, "of the church. Yes this is what I prayed for.")
@@ -223,6 +229,9 @@ def church(char):
             input("Will you be the Hero that this town needs?")
         elif a == "3" or a.lower() == "exit" or a.lower() == "leave":
             town.welcomeToTown(char, False)
+            break
+        elif bag.threeActions(a) == True:
+            continue
         else:
             bag.invalid()
 # Inn Fucntion
@@ -242,8 +251,10 @@ def inn(char):
         a = input("Who should you talk to first: ")
         if a == "1" or a.lower() == "keeper" or a.lower() == "inn keeper" or a.lower() == "innkeeper":
             innKeeper(char)
+            break
         elif a == "2" or a.lower() == "man" or a.lower() == "corner":
             stranger(char)
+            break
         else:
             bag.invalid()
 # Inkeeper Fucntion
@@ -254,8 +265,7 @@ def innKeeper(char):
         print("1.) Buy Supplies.\n2.) Ask about the monster.\n3.) Return to the town.")
         a = input("What do you want to ask: ")
         if a == "1" or a.lower() == "buy" or a.lower() == "supplies" or a.lower == "buy supplies" or a.lower == "buysupplies":
-            if bag.threeActions(a, False) == True:
-                continue
+
             print("Do I look like a Merchant to you", char.name, "?")
             if char.name == "Theif":
                 print("In fact no one in this town would ever does business with a", char.name, ".")
@@ -278,6 +288,9 @@ def innKeeper(char):
                 input("I already told you, the 'Huntsman' is in the 'Lost Forest',\nGo North to the 'Cross Roads' then go West.\nDont you have a Map?")
         elif a == "3" or a.lower() == "exit" or a.lower() == "leave":
             town.welcomeToTown(char, False)
+            break
+        elif bag.threeActions(a) == True:
+            continue
         else:
             bag.invalid()
 # Stranger Fucntion
@@ -288,9 +301,8 @@ def stranger(char):
         print("1.) Buy Supplies.\n2.) Ask about the monster.\n3.) Return to the town.")
         a = input("What do you want to ask: ")
         if a == "1" or a.lower() == "buy" or a.lower() == "supplies" or a.lower == "buy supplies" or a.lower == "buysupplies":
-            if bag.threeActions(a, False) == True:
-                continue
-            if char == "Theif":
+
+            if char.name == "Theif":
                 if theifSupp == True:
                     print("Well well well, a", char.name,"whos a fellow guild member.\nIf you looken to fence here, your out of luck.")
                     print("Im as broke as everyone else in this town.\nBut if your in the bussness of killing then problem then im your man.")
@@ -306,7 +318,7 @@ def stranger(char):
                 print("Do i look like a Merchant", char.name, "?")
                 input("Now piss off you dunce.")
         elif a == "2" or a.lower() == "ask" or a.lower() == "monster":
-            if char == "Theif":
+            if char.name == "Theif":
                 if theifInfo == True:
                     print("Well I can tell you everyone in this town dont know a damn thing about it.")
                     print("Its a 'Demon Lord' and it been cutting into guild business.")
@@ -322,5 +334,8 @@ def stranger(char):
                 input("Now bugger off.")
         elif a == "3" or a.lower() == "exit" or a.lower() == "leave":
             town.welcomeToTown(char, False)
+            break
+        elif bag.threeActions(a) == True:
+            continue
         else:
             bag.invalid()

@@ -76,8 +76,37 @@ def witchCurse(char, number):
     input("Now the Witch will have frog stew tonight.")
     choice(char, number)
 
-def firstSrikeDemon(char, number):
+def firstStrikeDemon(char, number):
     print("You think you could touch me with you moratl hands?")
-    print("The 'Demon Lords' eyes gaze on the",char.name,"and was trun into a pile of dust.")
+    demonKills(char, number)
+
+def secondStrikeDemon(char, number):
+    print("You think im that weak mortal?\nNow you will know pain!")
+    demonKills(char, number)
+
+def demonKills(char, number):
+    print("The 'Demon Lords' release a pulse of energy towards the",char.name,"and was trun into a pile of dust.")
     input("Never stood a chance")
     choice(char, number)
+def youWin(char):
+    print("The 'Demon Lord' was laying on the ground, completly void of life.\nYou have successfully killed the target")
+    print("The",char.name,"remove the 'Demon Lord's head from its shoulder")
+    input("and drag it from the top of the mountain back to town")
+    print("It was Twilight when you return to town and the residence left ther home to see the",char.name,"kill.")
+    input("Even the mayor run out and was shocked to see you exploits.")
+    print("WELL DONE, he shouted, I had no idea it was a 'Demon Lord'\nand you were still able to kill it.")
+    print("You have done this town a great favor",char.name,".")
+    print("Here is the reward promissed and why dont you stay were all going to celebrate,")
+    input("the entire town want to thank you for you efferts.")
+    input("But you weren't intrested, you simply took the money and left the town.")
+    print("The",char.name,"can here fire work from the Town,\nmaking you wonder if they turly ran out of supplies?")
+    print("But it doesn't matter, you got the gold from a job.\nA difficult job, but on none the less.")
+    input("Now you off to the next adventure.")
+    thankYou()
+    
+def thankYou():
+    print("Thank you for playing my Portfolio Project.\nPlease let me know what you think\nor if there any issues you encountered.")
+    input("Type python main.py to play again.")
+    quit()
+
+    

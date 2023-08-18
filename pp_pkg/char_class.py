@@ -58,6 +58,7 @@ def characterSelection():
         if a.lower() == "yes" or a.lower() == "y":
             input("Then let the adventure begin.")
             return char
+            break
         elif a.lower() == "no" or a.lower() == "n":
             input("Then pick other character.")
             continue

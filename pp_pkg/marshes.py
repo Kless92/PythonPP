@@ -24,11 +24,6 @@ def marshLands(char):
         print("1.) Head to the Old Shak\n2.) Head tword the Large Stump.\n3.) Go to the Crypt.\n4.) Leave the area")
         a = input("What should you do: ")
 
-        if bag.helpMe(a) == True:
-            continue
-        if bag.checkBag(a) == True:
-            continue
-
         if a == "3" or a.lower() == "crypt":
             if oldWomenFirst == True:
                 input("There no reason to risk your self there yet.")
@@ -51,6 +46,10 @@ def marshLands(char):
         elif a == "4" or a.lower() == "exit" or a.lower() == "leave":
             cross_roads.theCrossRoads(char)
             break
+        elif bag.threeActions(a) == True:
+            continue
+        else:
+            bag.invalid()
 
 def oldShak(char):
     
@@ -67,12 +66,7 @@ def oldShak(char):
     while True:
         print("1.) 'Knock' on the 'Door'.\n2.) Leave")
         a = input("What would you do: ")
-        if bag.helpMe(a) == True:
-            continue
-        if bag.checkBag(a) == True:
-            continue
-        if bag.checkMap(a, False) == True:
-            continue
+
         if a == "1" or a.lower() == "knock" or a.lower() == "door":
             if oldWomenFirst == True:
                 print("After knocking the door, a elderly women came out, hunched over, looking at you with one lazy eye open.")
@@ -100,6 +94,9 @@ def oldShak(char):
                 input("Unless you got what I need im not tell you a thing,\nshe said inside here shack.")
         elif a == "2" or a.lower() == "leave" or a.lower == "exit":
             marshLands(char)
+            break
+        elif bag.threeActions(a) == True:
+            continue
         else:
             bag.invalid
 
@@ -120,12 +117,6 @@ def largeStump(char):
         print("1.) 'Open' the chest.\n2.) 'Leave'")
         a = input("What should you do: ")
 
-        if bag.helpMe(a) == True:
-            continue
-        if bag.checkBag(a) == True:
-            continue
-        if bag.checkMap(a, False) == True:
-            continue
         if a == "1" or a.lower() == "open":
             print("The",char.name,"tried opening the chest but its locked.")
             while True:
@@ -135,17 +126,23 @@ def largeStump(char):
                         continue
                     elif permission == False:
                         oldWomanAtt(char)
+                        break
                     else:
-                        print("The",char,"unlocked the chest.")
+                        print("The",char.name,"unlocked the chest.")
                         input("You looked inside.")
                         gotScroll(char)
+                        break
                 elif b.lower() == "lock pick":
                     oldWomanAtt(char)
+                    break
                 else:
                     input("You'll have to try again later.")
                     break
         elif a == "2" or a.lower() == "leave" or a.lower == "exit":
             marshLands(char)
+            break
+        elif bag.threeActions(a) == True:
+            continue
         else:
             bag.invalid
 
@@ -156,14 +153,15 @@ def theCrypt(char):
 
     while True:
         a = input("You'll need that tourch: ")
-        if bag.threeActions(a, False) == True:
-            continue
+
         if a.lower() == "tourch":
             if bag.useItem(a.lower(), char) == False:
                 continue
             bag.bag.append("lit tourch")
             input("Your Tourch is now a 'Lit Tourch'.")
             break
+        elif bag.threeActions(a) == True:
+            continue
         else:
             bag.invalid()
             continue
@@ -176,8 +174,7 @@ def theCrypt(char):
     while True:
         attacks.attackOptions()
         a = input("What should you do: ")
-        if bag.threeActions(a, False) == True:
-            continue
+
         if a == "1" or a.lower() == "charge":
             if char.name == "Warrior":
                 print("The",char.name,"charge the skeleton.\nCrushing it with your",char.weapon,".")
@@ -188,6 +185,7 @@ def theCrypt(char):
                 break
             else:
                 game_over.failedCharge(char, 4)
+                break
         elif a == "2" or a.lower() == "shoot":
             if char.name == "Archer":
                 print("The",char.name,"fired a arrow at the center of the skeleton chest.")
@@ -197,11 +195,11 @@ def theCrypt(char):
                 attacks.noProjectile(char)
                 continue
         elif a == "3" or a.lower() == "cast":
-            if char == "Mage":
+            if char.name == "Mage":
                 print("The",char.name,"cast a",char.spell,"at the skeleton.")
                 input("Turning it into a pile of ash.")
                 break
-            elif char == "Paladin":
+            elif char.name == "Paladin":
                 print("The",char.name,"cast",char.spell,"at the skeleton.")
                 input("Turning it into a pile of ash.")
                 break
@@ -209,12 +207,15 @@ def theCrypt(char):
                 attacks.noSpells(char)
                 continue
         elif a == "4" or a.lower() == "sneak":
-            if char == "Theif":
+            if char.name == "Theif":
                 print("The",char.name,"sprint into the shadows and was able to sneak behind the skeleton.")
                 input("A quick strack with the daggers hilt and the skeleton fell with a shattered skull.")
                 break
             else:
                 game_over.sneakFailed(char, 4)
+                break
+        elif bag.threeActions(a) == True:
+            continue
         else:
             bag.invalid()
             continue
@@ -233,22 +234,24 @@ def necroFight(char):
     while True:
         attacks.attackOptions()
         a = input("What should you do: ")
-        if bag.threeActions(a, False) == True:
-            continue
+
         if a == "1" or a.lower() == "charge":
             game_over.necroCharge(char, 5)
+            break
         elif a == "2" or a.lower() == "shoot":
-            if char == "Archer":
+            if char.name == "Archer":
                 game_over.necroShoot(char, 5)
+                break
             else:
                 print("The",char,"doesn't have any projectile weapon.")
                 input("So nothing happen.")
                 continue
         elif a == "3" or a.lower() == "cast":
-            if char == "Mage" or char == "Paladin":
+            if char.name == "Mage" or char.name == "Paladin":
                 game_over.necroCast(char, 5)
+                break
             else:
-                print("The",char,"doesn't know any spells")
+                print("The",char.name,"doesn't know any spells")
                 input("So nothing happen.")
                 continue
         elif a == "4" or a.lower() == "sneak":
@@ -272,6 +275,8 @@ def necroFight(char):
             else:
                 attacks.necroSymbol(char)
                 necroDeath(char)
+        elif bag.threeActions(a) == True:
+            continue
         else:
             bag.invalid()
             continue
@@ -281,51 +286,65 @@ def necroRoundTwo(char):
     while True:
         attacks.attackOptions()
         a = input("What should you do: ")
-        if bag.threeActions(a, False) == True:
-            continue
+
         if a == "1" or a.lower() == "charge":
-            if char == "Warrior":
+            if char.name == "Warrior":
                 attacks.necroCharge(char)
-                input("Your",char.weapon,"tore off the 'Necro Manser' as his body fell to the ground.")
+                print("Your",char.weapon,"tore off the 'Necro Manser' head")
+                input("as his body fell to the ground.")
                 necroDeath(char)
-            elif char == "Paladin":
+                break
+            elif char.name == "Paladin":
                 attacks.necroCharge(char)
-                input("Your",char.weapon,"decapitated the 'Necro Manser's head and his body dropped to the ground.")
+                print("Your",char.weapon,"decapitated the 'Necro Manser's head")
+                input("and his body dropped to the ground.")
                 necroDeath(char)
+                break
             else:
                 game_over.failedCharge(char, 6)
+                break
         elif a == "2" or a.lower() == "shoot":
-            if char == "Archer":
+            if char.name == "Archer":
                 print("The",char.name,"fired a arrow at the 'Necro Manser', but he suddly disappeared.\nQuickly drawing another arrow, you head the 'Necro Manser' chatting from behind.")
                 input("You turn while jumping to your side and fired your arrow.\nIt went thought the 'Necro Manser's neck as he slowly died chocking on his own blood.")
-                necroDeath(char)  
+                necroDeath(char) 
+                break
             else:
                 attacks.noProjectile(char)
                 game_over.necroBlast(char, 6)
+                breakpoint
         elif a == "3" or a.lower() == "cast":
-            if char == "Mage" or char == "Paladin":
+            if char.name == "Mage" or char.name == "Paladin":
                 game_over.necroCast(char, 6)
+                break
             else:
                 attacks.noSpells(char)
                 game_over.necroBlast(char, 6)
+                break
         elif a == "4" or a.lower() == "sneak":
-            if char == "Theif":
+            if char.name == "Theif":
                 print("The",char.name,"used a smoke bomb and vanish from the 'Necro Manser' seights.\nIn the smoke, you quikcly rush over and stuck your target.")
                 input("You took two daggers and stable the 'Necor Manser' in the back, killing him.")
                 necroDeath(char)
+                break
             else:
                 game_over.sneakFailed(char, 6)
+                break
         elif a.lower() == "elixer of arcan":
             if bag.useItem(a.lower(), char) == False:
                 continue
             else:
                 attacks.necroArcan(char)
+                break
         elif a.lower() == "symbol of kings":
             if bag.useItem(a.lower(), char) == False:
                 continue
             else:
                 attacks.necroSymbol(char)
                 necroDeath(char)
+                break
+        elif bag.threeActions(a) == True:
+            continue
         else:
             bag.invalid()
             continue
@@ -354,15 +373,13 @@ def oldWomanAtt(char):
     while True:
         attacks.attackOptions()
         a = input("What should you do: ")
-        if bag.threeActions(a, False) == True:
-            continue
 
         if a == "1" or a.lower() == "charge":
             print("The",char.name,"rush towards the Which but she was too fast")
             game_over.witchCurse(char, 7)
             break
         elif a == "2" or a.lower() == "shoot":
-            if char == "Archer":
+            if char.name == "Archer":
                 print("The",char.name,"fires at the witch, but she simple deflected it with a spell.")
                 game_over.witchCurse(char, 7)
                 break
@@ -370,7 +387,7 @@ def oldWomanAtt(char):
                 attacks.noProjectile(char)
                 continue
         elif a == "3" or a.lower() == "cast":
-            if char == "Mage" or char == "Paladin":
+            if char.name == "Mage" or char.name == "Paladin":
                 print("The",char.name,"cast",char.spell,"at the Witch, but she simple deflected it with a spell.")
                 game_over.witchCurse(char, 7)
                 break            
@@ -386,23 +403,33 @@ def oldWomanAtt(char):
                 continue
             else:
                 print("The power of arcan rushs thought your body and you cast",char.spell,"on the Witch.\nShe shouldn't deflect it.")
-                input("She was then reduce to a pile of as, as the 'Marsh Land' consumed of whats left..")
+                input("She was then reduce to a pile of as, as the 'Marsh Lands' consumed of whats left..")
                 break                
         elif a.lower() == "symbol of kings":
             if bag.useItem(a.lower(), char) == False:
                 continue
             else:
                 print("The power of God filled you as you cast",char.spell,".\nShe shouldn't deflect it.")
-                input("After it hit her, she fell to the ground as the 'Marsh Land' consumed her.")
+                input("After it hit her, she fell to the ground as the 'Marsh Lands' consumed her.")
                 break
         elif a.lower() == "posion":
             if bag.useItem(a.lower(), char) == False:
                 continue
             else:
-                print("The blade was coated wiht posion then you throw it at the wich.\nThough it only hit her should it was enough")
+                print("You coated you blade with the posion then you throw it at the wich.\nThough it only hit her should it was enough")
                 print("It prevent her from casting any spells which gave you a change.")
-                print("You then rush over and finished her off.")
+                input("You then rush over and finished her off.")
                 break
+        elif a.lower == "black arrow":
+            if bag.useItem(a.lower(), char) == False:
+                continue
+            else:
+                print("You fired the black arrow at the witch, but when she tried to deflected it with her magic, it failed.")
+                print("It pierce through her neck and she died from chocking on her blood.")
+                input("She then fell to the ground and the 'Marsh Lands' consumed her.")
+                break
+        elif bag.threeActions(a) == True:
+            continue
         else:
             bag.invalid()
             continue
@@ -410,8 +437,8 @@ def oldWomanAtt(char):
     gotScroll(char)
 
 def gotScroll(char):
-    print("Inside the chest, the,",char.name,"found a scroll.\nOn it side its said 'Scroll of Weakening'.")
-    print("With this, the",char.name," can weaken any target of choice.")
+    print("Inside the chest, the",char.name,"found a scroll.\nOn it side its said 'Scroll of Weakening'.")
+    print("With this, the",char.name,"can weaken any target of choice.")
     input("This is what you'll need to finish the job!")
     bag.bag.append("scroll of weakening")
     input("You have picked up the Scroll of Weakening")

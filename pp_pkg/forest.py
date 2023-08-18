@@ -19,8 +19,7 @@ def lost_forest(char):
     while True:
         print("1.) Go into the Lost Forest\n2.) Head left to investigate.\n3.) 'Leave' the area")
         a = input("What should you do: ")
-        if bag.threeActions(a, False) == True:
-            continue
+
         if a == "1" or a.lower() == "go" or a.lower() == "enter":
             intoLostForest(char)
         elif a == "2" or a.lower() == "left" or a.lower() == "investigate":
@@ -28,6 +27,8 @@ def lost_forest(char):
         elif a == "3" or a.lower() == "exit" or a.lower() == "leave":
             cross_roads.theCrossRoads(char)
             break
+        elif bag.threeActions(a) == True:
+            continue
         else:
             bag.invalid
 
@@ -64,8 +65,7 @@ def invTheLeft(char):
     while True:
         print("1.) Investigate the camp.\n2.) 'Leave' the camp.")
         a = input("What should you do: ")
-        if bag.threeActions(a, False) == True:
-            continue
+
         if a == "1" or a.lower() == "investigate" or a.lower() == "camp":
             if investFirst == True:
                 print("In the center is a fire that died out some time ago.")
@@ -83,6 +83,8 @@ def invTheLeft(char):
         elif a == "2" or a.lower() == "exit" or a.lower() == "leave":
             lost_forest(char)
             break
+        elif bag.threeActions(a) == True:
+            continue
         else:
             bag.invalid()
         
@@ -97,8 +99,7 @@ def battleOfWolves(char):
     while True:
         attacks.attackOptions()
         a = input("What should you do:")
-        if bag.threeActions(a, False) == True:
-            continue
+
         if a == "1" or a.lower() == "charge":
             if char.name == "Warrior":
                 print("The",char.name,"charge on of the wolves.")
@@ -112,6 +113,7 @@ def battleOfWolves(char):
                 break
             else:
                 game_over.failedCharge(char, 3)
+                break
         elif a == "2" or a.lower() == "shoot":
             if char.name == "Archer":
                 print("The",char.name,"fired a arrow at one of the wolves head.")
@@ -140,6 +142,9 @@ def battleOfWolves(char):
                 break
             else:
                 game_over.sneakFailed(char, 3)
+                break
+        elif bag.threeActions(a) == True:
+            continue
         else:
             bag.invalid()
     
@@ -183,3 +188,4 @@ def battleOfWolves(char):
             input("Leaving the 'Lost Forest' gaining nothing for this incounter.")
         cross_roads.doneWithForest = True
         cross_roads.theCrossRoads(char)
+        break

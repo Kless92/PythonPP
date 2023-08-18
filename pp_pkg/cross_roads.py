@@ -19,8 +19,7 @@ def theCrossRoads(char):
     while True: 
         print("1.) North\n2.) West\n3.) East\n4.) South")
         a = input("Were do u want to go: ")
-        if bag.threeActions(a, False) == True:
-            continue
+
         if a == "1" or a.lower() == "north":
             mountains.mountains(char)
             break
@@ -41,6 +40,11 @@ def theCrossRoads(char):
         elif a == '4' or a.lower() == "south":
             town.welcomeToTown(char, False)
             break
+        elif a.lower() == "map":
+            bag.checkMap()
+            break
+        elif bag.threeActions(a) == True:
+            continue
         else:
             bag.invalid()
 

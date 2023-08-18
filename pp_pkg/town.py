@@ -15,8 +15,7 @@ def welcomeToTown(char, firstTime):
         print("You see the\n1.) Town Hall\n2.) General Store\n3.) Magic Shop\n4.) Inn\n5.) Church\n6.) Exit Town")
         a = input("Were do you want to go first: ")
 
-        if bag.threeActions(a, False) == True:
-            continue
+
         if a == "1" or a.lower() == "town hall" or a.lower() == "townhall":
             town_interiors.townHall(char)
             break
@@ -45,6 +44,8 @@ def welcomeToTown(char, firstTime):
                 continue
             cross_roads.theCrossRoads(char)
             break
+        elif bag.threeActions(a) == True:
+            continue
         else:
             bag.invalid()
 
